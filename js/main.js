@@ -59,17 +59,20 @@ function initHeader(){
 
   const burger = $('.burger');
   const mobileNav = $('.mobile-nav');
+  const mobileNavClose = $('.mobile-nav-close');
   if(burger && mobileNav){
+    const closeMenu = () => {
+      burger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    };
     burger.addEventListener('click', () => {
       burger.classList.toggle('open');
       mobileNav.classList.toggle('open');
       document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
     });
-    $$('.mobile-nav a').forEach(a => a.addEventListener('click', () => {
-      burger.classList.remove('open');
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-    }));
+    if(mobileNavClose) mobileNavClose.addEventListener('click', closeMenu);
+    $$('.mobile-nav a').forEach(a => a.addEventListener('click', closeMenu));
   }
 }
 

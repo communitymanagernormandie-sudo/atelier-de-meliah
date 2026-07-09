@@ -24,7 +24,7 @@
   .form-field textarea{ resize:vertical; min-height:120px; }
   .map-block{ aspect-ratio:16/10; border-radius:var(--radius); overflow:hidden; margin-top:2.5rem; }
   .map-block iframe{ width:100%; height:100%; border:0; }
-  @media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; } .contact-form-wrap{ padding:2rem; } }
+  @media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; } .contact-grid > *{ min-width:0; } .contact-form-wrap{ padding:2rem; } }
 </style>
 </head>
 <body>
@@ -57,6 +57,7 @@
   </div>
 </header>
 <nav class="mobile-nav">
+  <button class="mobile-nav-close" aria-label="Fermer le menu"><span></span><span></span></button>
   <a href="index.html">Accueil</a>
   <a href="boutique.html">Boutique</a>
   <a href="personnalisation.html">Personnalisation</a>

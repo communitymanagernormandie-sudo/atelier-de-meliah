@@ -44,6 +44,11 @@
   .pdp-tabs-nav button.active{ color:var(--ink); border-color:var(--accent); }
   .pdp-tab-panel{ display:none; padding:2.5rem 0; color:var(--ink-soft); max-width:44rem; line-height:1.9; }
   .pdp-tab-panel.active{ display:block; }
+  @media (max-width:860px){
+    .pdp-grid{ grid-template-columns:1fr; gap:2.5rem; }
+    .pdp-tabs-nav{ gap:1.5rem; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .pdp-tabs-nav button{ white-space:nowrap; flex-shrink:0; }
+  }
 </style>
 </head>
 <body>
@@ -76,6 +81,7 @@
   </div>
 </header>
 <nav class="mobile-nav">
+  <button class="mobile-nav-close" aria-label="Fermer le menu"><span></span><span></span></button>
   <a href="index.html">Accueil</a>
   <a href="boutique.html">Boutique</a>
   <a href="personnalisation.html">Personnalisation</a>

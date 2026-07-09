@@ -25,7 +25,7 @@
   .builder-field{ margin-bottom:1.8rem; }
   .builder-field label{ font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:0.8rem; color:var(--ink-soft); }
   .builder-field select, .builder-field input{ width:100%; padding:0.9rem 1.1rem; border-radius:12px; border:1px solid var(--border); font-family:inherit; font-size:0.92rem; background:#fff; }
-  @media (max-width:900px){ .steps-grid, .builder{ grid-template-columns:1fr; } .builder{ padding:2.5rem; } }
+  @media (max-width:900px){ .steps-grid, .builder{ grid-template-columns:1fr; } .builder{ padding:2.5rem; } .builder > *{ min-width:0; } .builder .btn-accent{ white-space:normal; width:100%; text-align:center; } }
 </style>
 </head>
 <body>
@@ -58,6 +58,7 @@
   </div>
 </header>
 <nav class="mobile-nav">
+  <button class="mobile-nav-close" aria-label="Fermer le menu"><span></span><span></span></button>
   <a href="index.html">Accueil</a>
   <a href="boutique.html">Boutique</a>
   <a href="personnalisation.html">Personnalisation</a>

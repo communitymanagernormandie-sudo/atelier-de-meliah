@@ -26,6 +26,9 @@
   .legal-block{ margin-top:5rem; padding-top:3rem; border-top:1px solid var(--border); max-width:44rem; }
   .legal-block h3{ font-size:1.3rem; margin-bottom:0.8rem; }
   .legal-block p{ color:var(--ink-soft); margin-bottom:1.2rem; line-height:1.85; }
+  @media (max-width:700px){
+    .value-grid{ grid-template-columns:1fr; gap:2.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -58,6 +61,7 @@
   </div>
 </header>
 <nav class="mobile-nav">
+  <button class="mobile-nav-close" aria-label="Fermer le menu"><span></span><span></span></button>
   <a href="index.html">Accueil</a>
   <a href="boutique.html">Boutique</a>
   <a href="personnalisation.html">Personnalisation</a>
