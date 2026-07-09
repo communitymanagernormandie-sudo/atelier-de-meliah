@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Fiche produit | L'Atelier de Meliah</title>
+<meta name="description" id="page-desc" content="Créations artisanales pour bébé, faites main en Normandie.">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .pdp-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:4.5rem; align-items:flex-start; }
+  .pdp-gallery-main{ aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden; background:var(--bg-2); }
+  .pdp-gallery-main img{ width:100%; height:100%; object-fit:cover; }
+  .pdp-thumbs{ display:flex; gap:0.8rem; margin-top:0.9rem; }
+  .pdp-thumbs button{ width:76px; height:88px; border-radius:10px; overflow:hidden; border:1px solid var(--border); background:none; padding:0; opacity:0.6; transition:0.3s; }
+  .pdp-thumbs button.active, .pdp-thumbs button:hover{ opacity:1; border-color:var(--accent); }
+  .pdp-thumbs img{ width:100%; height:100%; object-fit:cover; }
+  .pdp-cat{ font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); font-weight:600; }
+  .pdp-title{ font-size:clamp(1.9rem,3vw,2.6rem); margin-top:0.6rem; }
+  .pdp-rating{ display:flex; align-items:center; gap:0.6rem; margin-top:0.8rem; font-size:0.88rem; color:var(--ink-soft); }
+  .pdp-rating .stars{ color:var(--accent); letter-spacing:2px; }
+  .pdp-price{ font-family:var(--font-display); font-size:1.9rem; font-weight:600; color:var(--accent); margin-top:1.3rem; }
+  .pdp-desc{ margin-top:1.4rem; color:var(--ink-soft); max-width:34rem; }
+  .opt-block{ margin-top:2rem; }
+  .opt-block h5{ font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.9rem; }
+  .swatches{ display:flex; gap:0.7rem; }
+  .swatch{ width:34px; height:34px; border-radius:50%; border:2px solid transparent; cursor:pointer; box-shadow:0 0 0 1px var(--border) inset; }
+  .swatch.active{ border-color:var(--accent); }
+  .fabric-opts{ display:flex; gap:0.7rem; flex-wrap:wrap; }
+  .fabric-opt{ padding:0.55rem 1.1rem; border-radius:999px; border:1px solid var(--border); font-size:0.82rem; cursor:pointer; background:#fff; }
+  .fabric-opt.active{ border-color:var(--accent); background:var(--bg-2); color:var(--accent); }
+  .prenom-input{ width:100%; max-width:22rem; padding:0.9rem 1.1rem; border-radius:12px; border:1px solid var(--border); font-family:inherit; font-size:0.92rem; }
+  .pdp-qty{ display:flex; align-items:center; gap:0.9rem; margin-top:2rem; }
+  .pdp-qty button{ width:38px; height:38px; border-radius:50%; border:1px solid var(--border); background:none; font-size:1rem; }
+  .pdp-actions{ display:flex; gap:1rem; margin-top:1.6rem; }
+  .pdp-reassure{ margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:0.9rem; font-size:0.86rem; color:var(--ink-soft); }
+  .pdp-reassure div{ display:flex; align-items:center; gap:0.7rem; }
+  .pdp-tabs{ margin-top:5.5rem; }
+  .pdp-tabs-nav{ display:flex; gap:2.5rem; border-bottom:1px solid var(--border); }
+  .pdp-tabs-nav button{ background:none; border:none; padding:1rem 0; font-size:0.86rem; letter-spacing:0.04em; color:var(--ink-soft); border-bottom:2px solid transparent; }
+  .pdp-tabs-nav button.active{ color:var(--ink); border-color:var(--accent); }
+  .pdp-tab-panel{ display:none; padding:2.5rem 0; color:var(--ink-soft); max-width:44rem; line-height:1.9; }
+  .pdp-tab-panel.active{ display:block; }
+</style>
+</head>
+<body>
+
+<header class="site scrolled" style="position:relative;">
+  <div class="container nav-row">
+    <a href="index.html" class="brand">L'Atelier de Meliah</a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="boutique.html">Boutique</a>
+      <a href="index.html#collections">Collections</a>
+      <a href="personnalisation.html">Personnalisation</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-icons">
+      <button aria-label="Recherche"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="a-propos.html#compte" class="icon-account" aria-label="Compte"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="a-propos.html#favoris" aria-label="Favoris" style="position:relative;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6Z"/></svg>
+        <span class="icon-badge fav-count" style="display:none;">0</span>
+      </a>
+      <button data-cart-open aria-label="Panier" style="position:relative;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 2H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="icon-badge cart-count" style="display:none;">0</span>
+      </button>
+      <a href="personnalisation.html" class="btn btn-primary btn-sm nav-cta">Créer un cadeau</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="boutique.html">Boutique</a>
+  <a href="personnalisation.html">Personnalisation</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section style="padding-top:9rem;">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Accueil</a> / <a href="boutique.html">Boutique</a> / <span id="crumb-name"></span></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1.5rem;">
+  <div class="container">
+    <div class="pdp-grid">
+      <div>
+        <div class="pdp-gallery-main"><img id="main-img" src="" alt=""></div>
+        <div class="pdp-thumbs" id="pdp-thumbs"></div>
+      </div>
+      <div>
+        <div class="pdp-cat" id="pdp-cat"></div>
+        <h1 class="pdp-title" id="pdp-title"></h1>
+        <div class="pdp-rating"><span class="stars" id="pdp-stars"></span><span id="pdp-reviews"></span></div>
+        <div class="pdp-price" id="pdp-price"></div>
+        <p class="pdp-desc" id="pdp-desc"></p>
+
+        <div class="opt-block">
+          <h5>Couleur</h5>
+          <div class="swatches">
+            <button class="swatch active" style="background:#EFE6DC;" data-color="Lin naturel"></button>
+            <button class="swatch" style="background:#D8BFA8;" data-color="Camel"></button>
+            <button class="swatch" style="background:#B98C72;" data-color="Terracotta"></button>
+            <button class="swatch" style="background:#7B8570;" data-color="Sauge"></button>
+            <button class="swatch" style="background:#2E2B28;" data-color="Anthracite"></button>
+          </div>
+        </div>
+
+        <div class="opt-block">
+          <h5>Tissu</h5>
+          <div class="fabric-opts">
+            <button class="fabric-opt active" data-fabric="Lin lavé">Lin lavé</button>
+            <button class="fabric-opt" data-fabric="Gaze de coton">Gaze de coton</button>
+            <button class="fabric-opt" data-fabric="Coton bio">Coton bio</button>
+          </div>
+        </div>
+
+        <div class="opt-block" id="perso-block" style="display:none;">
+          <h5>Prénom à broder (optionnel)</h5>
+          <input type="text" class="prenom-input" id="prenom-input" maxlength="14" placeholder="Ex. Louise">
+        </div>
+
+        <div class="pdp-qty">
+          <button id="qty-minus">−</button>
+          <span id="qty-val">1</span>
+          <button id="qty-plus">+</button>
+        </div>
+
+        <div class="pdp-actions">
+          <button class="btn btn-primary" id="add-to-cart" style="flex:1;">Ajouter au panier</button>
+          <button class="product-fav" id="pdp-fav" style="position:static; width:52px; height:52px;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6Z"/></svg>
+          </button>
+        </div>
+
+        <div class="pdp-reassure">
+          <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v9H3zM16 10h3l2 3v3h-5z"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg> Expédition sous 3 à 5 jours</div>
+          <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg> Retours acceptés sous 14 jours</div>
+          <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5c2-.3 4 .8 6 3 2-2.2 4-3.3 6-3 3.5.5 5 4 3.5 7.5C19 16.65 12 21 12 21Z"/></svg> Cousu à la main, pièce par pièce</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pdp-tabs">
+      <div class="pdp-tabs-nav">
+        <button class="active" data-tab="description">Description</button>
+        <button data-tab="entretien">Conseils d'entretien</button>
+        <button data-tab="livraison">Livraison &amp; retours</button>
+        <button data-tab="avis">Avis clients</button>
+      </div>
+      <div class="pdp-tab-panel active" data-panel="description">
+        <p id="tab-desc"></p>
+      </div>
+      <div class="pdp-tab-panel" data-panel="entretien">
+        <p>Lavage à 30° sur cycle délicat, séchage à l'air libre recommandé. Repassage à basse température sur l'envers pour préserver la broderie. Éviter le sèche-linge afin de conserver la douceur des matières naturelles.</p>
+      </div>
+      <div class="pdp-tab-panel" data-panel="livraison">
+        <p>Chaque création est expédiée sous 3 à 5 jours ouvrés dans un emballage soigné. Livraison en France métropolitaine (Colissimo suivi) et Europe. Un article non personnalisé peut être retourné sous 14 jours ; les créations personnalisées ne sont ni reprises ni échangées, sauf défaut de fabrication.</p>
+      </div>
+      <div class="pdp-tab-panel" data-panel="avis">
+        <p>★★★★★ — « Absolument magnifique, la broderie est d'une précision incroyable. » — Sarah L.</p>
+        <p>★★★★★ — « Un cadeau de naissance qui a fait sensation, merci pour ce travail soigné. » — Thomas B.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:6rem;">
+      <div class="section-head left reveal">
+        <span class="eyebrow">Vous aimerez aussi</span>
+        <h2 class="h-section" style="margin-top:0.75rem;">Créations <span class="italic-accent">associées</span></h2>
+      </div>
+      <div class="products-grid" id="related-products"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-brand">L'Atelier de Meliah</a>
+        <p class="footer-tag">Créations artisanales de puériculture, cousues et brodées à la main en Normandie.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="index.html">Accueil</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="personnalisation.html">Personnalisation</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Service client</h5>
+        <a href="contact.html">Nous contacter</a>
+        <a href="a-propos.html#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>Légal</h5>
+        <a href="a-propos.html#cgv">CGV</a>
+        <a href="a-propos.html#mentions">Mentions légales</a>
+      </div>
+      <div class="footer-col">
+        <h5>Paiement sécurisé</h5>
+        <p style="font-size:0.86rem; color:var(--ink-soft);">Carte bancaire, PayPal et virement.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year"></span> L'Atelier de Meliah</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" data-cart-close></div>
+<aside class="cart-drawer">
+  <div class="cart-head">
+    <h3 style="font-size:1.3rem;">Votre panier</h3>
+    <button data-cart-close aria-label="Fermer" style="background:none;border:none;font-size:1.4rem;">&times;</button>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="cart-subtotal"><span>Sous-total</span><span class="amount">0 €</span></div>
+    <a href="panier.html" class="btn btn-primary btn-block">Voir le panier</a>
+  </div>
+</aside>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const product = findProduct(params.get('id')) || PRODUCTS[0];
+
+  document.getElementById('page-title').textContent = product.name + ' | L\'Atelier de Meliah';
+  document.getElementById('page-desc').setAttribute('content', product.desc);
+  document.getElementById('crumb-name').textContent = product.name;
+  document.getElementById('main-img').src = product.img;
+  document.getElementById('main-img').alt = product.name;
+  document.getElementById('pdp-cat').textContent = product.category;
+  document.getElementById('pdp-title').textContent = product.name;
+  document.getElementById('pdp-stars').textContent = '★★★★★☆☆☆☆☆'.slice(5-product.rating, 10-product.rating);
+  document.getElementById('pdp-reviews').textContent = `(${product.reviews} avis)`;
+  document.getElementById('pdp-price').textContent = euros(product.price);
+  document.getElementById('pdp-desc').textContent = product.desc;
+  document.getElementById('tab-desc').textContent = product.desc + ' Confectionné à la main dans notre atelier normand, chaque exemplaire présente de légères variations qui font tout le charme du fait-main.';
+  document.getElementById('pdp-thumbs').innerHTML = [product.img, product.imgHover].map((src,i) =>
+    `<button class="${i===0?'active':''}" onclick="document.getElementById('main-img').src='${src}'; document.querySelectorAll('.pdp-thumbs button').forEach(b=>b.classList.remove('active')); this.classList.add('active');"><img src="${src}" alt=""></button>`
+  ).join('');
+  if(product.personalisable) document.getElementById('perso-block').style.display = 'block';
+  document.getElementById('pdp-fav').classList.toggle('active', Favorites.has(product.id));
+
+  // swatches / fabric selection
+  document.querySelectorAll('.swatch').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  }));
+  document.querySelectorAll('.fabric-opt').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.fabric-opt').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  }));
+
+  // quantity
+  let qty = 1;
+  document.getElementById('qty-minus').addEventListener('click', () => { qty = Math.max(1, qty-1); document.getElementById('qty-val').textContent = qty; });
+  document.getElementById('qty-plus').addEventListener('click', () => { qty += 1; document.getElementById('qty-val').textContent = qty; });
+
+  // favorite toggle
+  document.getElementById('pdp-fav').addEventListener('click', function(){
+    const on = Favorites.toggle(product.id);
+    this.classList.toggle('active', on);
+  });
+
+  // add to cart
+  document.getElementById('add-to-cart').addEventListener('click', () => {
+    const color = document.querySelector('.swatch.active').dataset.color;
+    const fabric = document.querySelector('.fabric-opt.active').dataset.fabric;
+    const prenom = document.getElementById('prenom-input') ? document.getElementById('prenom-input').value.trim() : '';
+    for(let i=0;i<qty;i++){ Cart.add(product.id, { color, fabric, prenom }); }
+    showToast(`${product.name} ajouté au panier`);
+  });
+
+  // tabs
+  document.querySelectorAll('.pdp-tabs-nav button').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.pdp-tabs-nav button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.pdp-tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.pdp-tab-panel[data-panel="${btn.dataset.tab}"]`).classList.add('active');
+  }));
+
+  // related products
+  const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0,4);
+  renderProductGrid(document.getElementById('related-products'), related.length ? related : PRODUCTS.filter(p=>p.id!==product.id).slice(0,4));
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — Notre histoire | L'Atelier de Meliah</title>
+<meta name="description" content="Découvrez l'histoire de L'Atelier de Meliah, atelier de couture artisanal en Normandie dédié aux créations de puériculture faites main.">
+<link rel="canonical" href="https://www.latelierdemeliah.fr/a-propos.html">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .about-hero{ min-height:60vh; display:flex; align-items:center; position:relative; color:#fff; }
+  .about-hero-bg{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(46,43,40,0.3), rgba(46,43,40,0.78)), url('https://images.unsplash.com/photo-1739117441029-9f2a8e59e8b2?auto=format&fit=crop&w=1800&q=85') center/cover; }
+  .value-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+  .value-card{ text-align:center; padding:2rem; }
+  .value-card .n{ font-family:var(--font-display); font-size:2.2rem; color:var(--accent); }
+  .faq-item{ border-bottom:1px solid var(--border); padding:1.6rem 0; }
+  .faq-item summary{ cursor:pointer; font-weight:600; display:flex; justify-content:space-between; align-items:center; list-style:none; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:'+'; font-family:var(--font-display); font-size:1.4rem; color:var(--accent); }
+  .faq-item[open] summary::after{ content:'−'; }
+  .faq-item p{ margin-top:1rem; color:var(--ink-soft); font-size:0.92rem; line-height:1.8; }
+  .legal-block{ margin-top:5rem; padding-top:3rem; border-top:1px solid var(--border); max-width:44rem; }
+  .legal-block h3{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .legal-block p{ color:var(--ink-soft); margin-bottom:1.2rem; line-height:1.85; }
+</style>
+</head>
+<body>
+
+<header class="site scrolled" style="position:relative;">
+  <div class="container nav-row">
+    <a href="index.html" class="brand">L'Atelier de Meliah</a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="boutique.html">Boutique</a>
+      <a href="index.html#collections">Collections</a>
+      <a href="personnalisation.html">Personnalisation</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-icons">
+      <button aria-label="Recherche"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="a-propos.html#compte" class="icon-account" aria-label="Compte"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="a-propos.html#favoris" aria-label="Favoris" style="position:relative;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6Z"/></svg>
+        <span class="icon-badge fav-count" style="display:none;">0</span>
+      </a>
+      <button data-cart-open aria-label="Panier" style="position:relative;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 2H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="icon-badge cart-count" style="display:none;">0</span>
+      </button>
+      <a href="boutique.html" class="btn btn-primary btn-sm nav-cta">Découvrir la collection</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="boutique.html">Boutique</a>
+  <a href="personnalisation.html">Personnalisation</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="container" style="position:relative; z-index:2; max-width:640px;">
+    <span class="eyebrow">Notre histoire</span>
+    <h1 class="h-display" style="color:#fff; margin-top:1rem;">Un atelier, une <span class="italic-accent">passion</span>.</h1>
+    <p class="lead" style="color:rgba(255,255,255,0.86); margin-top:1.4rem;">Née d'une envie simple : créer des objets précieux pour accompagner les tout premiers instants de la vie.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="atelier-grid">
+      <div class="atelier-gallery reveal">
+        <img class="img1" src="https://images.unsplash.com/photo-1707914703104-b70cddf191cb?auto=format&fit=crop&w=700&q=80" alt="Atelier de couture">
+        <img class="img2" src="https://images.unsplash.com/photo-1739117441029-9f2a8e59e8b2?auto=format&fit=crop&w=500&q=80" alt="Tissus et fils">
+      </div>
+      <div class="atelier-text reveal">
+        <span class="eyebrow">Depuis Livarot-Pays-d'Auge</span>
+        <h2 class="h-section" style="margin-top:0.75rem;">Née d'un amour du <span class="italic-accent">fait-main</span></h2>
+        <p>L'Atelier de Meliah est né d'une conviction simple : les objets qui accompagnent les premiers instants d'un enfant méritent d'être façonnés avec autant de soin que d'amour. Chaque pièce est pensée, dessinée puis cousue à la main, dans notre atelier normand baigné de lumière naturelle.</p>
+        <p>Nous sélectionnons avec exigence des matières douces et durables — lin lavé, gaze de coton biologique, bois local — pour offrir à votre enfant des créations sûres, saines et intemporelles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="justify-content:center;">Nos valeurs</span>
+      <h2 class="h-section" style="margin-top:0.75rem;">Ce qui nous <span class="italic-accent">anime</span></h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card reveal"><div class="n">01</div><h3 style="margin-top:1rem; font-size:1.1rem;">Savoir-faire</h3><p style="color:var(--ink-soft); margin-top:0.6rem; font-size:0.9rem;">Chaque geste est maîtrisé, chaque couture vérifiée.</p></div>
+      <div class="value-card reveal"><div class="n">02</div><h3 style="margin-top:1rem; font-size:1.1rem;">Sécurité</h3><p style="color:var(--ink-soft); margin-top:0.6rem; font-size:0.9rem;">Des matières certifiées, pensées pour la peau des tout-petits.</p></div>
+      <div class="value-card reveal"><div class="n">03</div><h3 style="margin-top:1rem; font-size:1.1rem;">Émotion</h3><p style="color:var(--ink-soft); margin-top:0.6rem; font-size:0.9rem;">Des créations destinées à devenir des souvenirs de famille.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container-narrow">
+    <div class="section-head left reveal">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2 class="h-section" style="margin-top:0.75rem;">FAQ</h2>
+    </div>
+    <details class="faq-item" open><summary>Combien de temps prend la fabrication d'une création personnalisée ?</summary><p>Comptez entre 5 et 10 jours ouvrés de fabrication, suivis de l'expédition sous 2 à 3 jours supplémentaires.</p></details>
+    <details class="faq-item"><summary>Puis-je retourner un article personnalisé ?</summary><p>Les créations personnalisées ne sont ni reprises ni échangées, sauf défaut de fabrication avéré. Les articles standards peuvent être retournés sous 14 jours.</p></details>
+    <details class="faq-item"><summary>Quelles matières utilisez-vous ?</summary><p>Nous privilégions le lin lavé français, la gaze de coton certifiée Oeko-Tex et le bois de hêtre local, pour des créations douces et durables.</p></details>
+    <details class="faq-item"><summary>Livrez-vous en dehors de la France ?</summary><p>Oui, nous expédions dans toute l'Union européenne. Les délais varient de 5 à 10 jours ouvrés selon la destination.</p></details>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="legal-block" id="livraison">
+      <h3>Livraison</h3>
+      <p>Toutes nos créations sont expédiées en Colissimo suivi depuis notre atelier de Livarot-Pays-d'Auge. Délai de préparation : 3 à 10 jours ouvrés selon personnalisation. Livraison en France métropolitaine et Union européenne.</p>
+    </div>
+    <div class="legal-block" id="retours">
+      <h3>Retours</h3>
+      <p>Vous disposez de 14 jours après réception pour nous retourner un article non personnalisé, dans son état d'origine. Les frais de retour restent à la charge du client, sauf erreur de notre part.</p>
+    </div>
+    <div class="legal-block" id="cgv">
+      <h3>Conditions générales de vente</h3>
+      <p>Les présentes CGV régissent les ventes réalisées sur latelierdemeliah.fr. Les prix sont indiqués en euros, toutes taxes comprises. Le paiement s'effectue en ligne de manière sécurisée au moment de la commande.</p>
+    </div>
+    <div class="legal-block" id="confidentialite">
+      <h3>Politique de confidentialité</h3>
+      <p>Vos données personnelles sont collectées uniquement dans le cadre du traitement de votre commande et ne sont jamais cédées à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.</p>
+    </div>
+    <div class="legal-block" id="mentions">
+      <h3>Mentions légales</h3>
+      <p>L'Atelier de Meliah — Entreprise individuelle — Chemin du Quesnay, 14140 Livarot-Pays-d'Auge, Normandie, France. Directrice de publication : Meliah. Hébergement : à définir.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-brand">L'Atelier de Meliah</a>
+        <p class="footer-tag">Créations artisanales de puériculture, cousues et brodées à la main en Normandie.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="index.html">Accueil</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="personnalisation.html">Personnalisation</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Service client</h5>
+        <a href="contact.html">Nous contacter</a>
+        <a href="a-propos.html#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>Légal</h5>
+        <a href="a-propos.html#cgv">CGV</a>
+        <a href="a-propos.html#mentions">Mentions légales</a>
+      </div>
+      <div class="footer-col">
+        <h5>Paiement sécurisé</h5>
+        <p style="font-size:0.86rem; color:var(--ink-soft);">Carte bancaire, PayPal et virement.</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© <span class="year"></span> L'Atelier de Meliah</span></div>
+  </div>
+</footer>
+
+<div class="cart-overlay" data-cart-close></div>
+<aside class="cart-drawer">
+  <div class="cart-head">
+    <h3 style="font-size:1.3rem;">Votre panier</h3>
+    <button data-cart-close aria-label="Fermer" style="background:none;border:none;font-size:1.4rem;">&times;</button>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="cart-subtotal"><span>Sous-total</span><span class="amount">0 €</span></div>
+    <a href="panier.html" class="btn btn-primary btn-block">Voir le panier</a>
+  </div>
+</aside>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
