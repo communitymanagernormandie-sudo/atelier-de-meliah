@@ -190,7 +190,7 @@ header.site.scrolled .burger span{ background:var(--ink); }
 .products-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.75rem; }
 .product-card{ position:relative; }
 .product-media{
-  position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5; background:var(--bg-2);
+  position:relative; display:block; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5; background:var(--bg-2);
 }
 .product-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 0.7s var(--ease), opacity .5s ease; }
 .product-media img.img-hover{ opacity:0; }
