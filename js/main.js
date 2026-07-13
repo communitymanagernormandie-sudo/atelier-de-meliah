@@ -46,16 +46,62 @@ const Favorites = {
   has(id){ return this.read().includes(id); }
 };
 
+/* ---------- Supabase client ---------- */
+const SUPABASE_URL = 'https://vwpjwgllkzltaqoloxgb.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_HCuipW4Co_HXmFa3v0MfxQ_I1I0gcyR';
+const sb = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+/* ---------- Account (Supabase auth) ---------- */
+const AUTH_ERRORS_FR = {
+  'Invalid login credentials': 'Email ou mot de passe incorrect.',
+  'User already registered': 'Un compte existe déjà avec cet email.',
+  'Email not confirmed': 'Merci de confirmer votre email avant de vous connecter (vérifiez votre boîte de réception).',
+  'Password should be at least 6 characters': 'Le mot de passe doit contenir au moins 6 caractères.',
+  'email rate limit exceeded': 'Trop de demandes en peu de temps. Merci de réessayer dans quelques minutes.',
+  'For security purposes, you can only request this after 60 seconds.': 'Pour des raisons de sécurité, merci de patienter une minute avant de réessayer.'
+};
+const authErrorFr = (error) => (error && AUTH_ERRORS_FR[error.message]) || (error ? error.message : '');
+
+const Account = {
+  async getUser(){
+    const { data } = await sb.auth.getUser();
+    return data.user || null;
+  },
+  async getProfile(userId){
+    const { data } = await sb.from('profiles').select('*').eq('id', userId).single();
+    return data || null;
+  },
+  signUp({ prenom, nom, email, password }){
+    return sb.auth.signUp({ email, password, options: { data: { prenom, nom } } });
+  },
+  signIn({ email, password }){
+    return sb.auth.signInWithPassword({ email, password });
+  },
+  signOut(){
+    return sb.auth.signOut();
+  },
+  updateProfile(userId, { prenom, nom, email }){
+    return sb.from('profiles').update({ prenom, nom, email }).eq('id', userId);
+  }
+};
+
 /* ---------- Header scroll state ---------- */
 function initHeader(){
   const header = $('header.site');
   if(!header) return;
-  const onScroll = () => {
-    if(window.scrollY > 40) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive:true });
+  // Interior pages use a relative (non-overlay) header: it must stay dark-on-light
+  // permanently. Only the homepage's transparent overlay header toggles on scroll.
+  const isOverlayHeader = getComputedStyle(header).position !== 'relative';
+  if(isOverlayHeader){
+    const onScroll = () => {
+      if(window.scrollY > 40) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive:true });
+  } else {
+    header.classList.add('scrolled');
+  }
 
   const burger = $('.burger');
   const mobileNav = $('.mobile-nav');
